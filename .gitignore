@@ -221,3 +221,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Machine Learning - Datasets
+/data/raw/*
+/data/processed/*
+!/data/raw/.gitkeep
+!/data/processed/.gitkeep
+
+# Machine Learning - Trained models
+/models/*
+!/models/.gitkeep
+
+# Machine Learning - Experiment artifacts
+/mlruns/
+/artifacts/
+
+# Local environment files
+.env.*
+!.env.example

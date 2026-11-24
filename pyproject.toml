@@ -22,7 +22,10 @@ package-mode = false
 [dependency-groups]
 dev = [
     "pytest (>=9.2.0,<10.0.0)",
-    "ruff (>=0.17.6,<0.18.0)"
+    "ruff (>=0.17.6,<0.18.0)",
+    "jupyterlab (>=4.6.6,<5.0.0)",
+    "matplotlib (>=3.11.2,<4.0.0)",
+    "seaborn (>=0.13.2,<0.14.0)"
 ]
 
 
