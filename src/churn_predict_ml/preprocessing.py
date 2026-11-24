@@ -1,3 +1,4 @@
+
 import pandas as pd
 
 
@@ -41,3 +42,47 @@ def clean_total_charges(df: pd.DataFrame) -> pd.DataFrame:
     ] = 0.0
 
     return cleaned_df
+
+
+def split_features_target(
+    df: pd.DataFrame,
+) -> tuple[pd.DataFrame, pd.Series]:
+    """Separa as variáveis preditoras da variável-alvo Churn.
+
+    Remove o identificador customerID das features e converte
+    os valores de Churn para uma representação binária.
+
+    Args:
+        df: DataFrame contendo as informações dos clientes,
+            incluindo customerID e Churn.
+
+    Returns:
+        Uma tupla contendo:
+            - X: DataFrame com as variáveis preditoras.
+            - y: Series com a variável-alvo binária,
+              sendo No = 0 e Yes = 1.
+
+    Raises:
+        KeyError: Se customerID ou Churn não estiver presente.
+        ValueError: Se Churn contiver valores diferentes de
+            Yes e No, incluindo valores ausentes.
+    """
+    required_columns = {"customerID", "Churn"}
+    missing_columns = required_columns.difference(df.columns)
+
+    if missing_columns:
+        raise KeyError(
+            f"Missing required columns: {sorted(missing_columns)}"
+        )
+
+    valid_target = df["Churn"].isin(["Yes", "No"])
+
+    if not valid_target.all():
+        raise ValueError(
+            "Churn must contain only 'Yes' or 'No' values."
+        )
+
+    X = df.drop(columns=["customerID", "Churn"]).copy()
+    y = df["Churn"].map({"No": 0, "Yes": 1}).astype(int)
+
+    return X, y
