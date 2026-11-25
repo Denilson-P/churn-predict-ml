@@ -1,10 +1,10 @@
-
 import pandas as pd
 import pytest
 
 from churn_predict_ml.preprocessing import (
     clean_total_charges,
     split_features_target,
+    split_train_test,
 )
 
 
@@ -122,3 +122,42 @@ def test_split_features_target_preserves_original_dataframe() -> None:
     split_features_target(df)
 
     pd.testing.assert_frame_equal(df, original_df)
+
+
+def test_split_train_test_preserves_dataset_size() -> None:
+    """Verifica a divisão 80/20 sem perda de registros."""
+    X = pd.DataFrame({"tenure": range(100)})
+    y = pd.Series([0] * 75 + [1] * 25)
+
+    X_train, X_test, y_train, y_test = split_train_test(X, y)
+
+    assert len(X_train) == 80
+    assert len(X_test) == 20
+    assert len(y_train) == 80
+    assert len(y_test) == 20
+
+    assert set(X_train.index).isdisjoint(X_test.index)
+    assert set(X_train.index).union(X_test.index) == set(X.index)
+
+
+def test_split_train_test_preserves_class_distribution() -> None:
+    """Verifica a preservação da proporção das classes."""
+    X = pd.DataFrame({"tenure": range(100)})
+    y = pd.Series([0] * 75 + [1] * 25)
+
+    _, _, y_train, y_test = split_train_test(X, y)
+
+    assert y_train.mean() == pytest.approx(0.25)
+    assert y_test.mean() == pytest.approx(0.25)
+
+
+def test_split_train_test_is_reproducible() -> None:
+    """Verifica resultados idênticos com a mesma semente."""
+    X = pd.DataFrame({"tenure": range(100)})
+    y = pd.Series([0] * 75 + [1] * 25)
+
+    first_split = split_train_test(X, y)
+    second_split = split_train_test(X, y)
+
+    for first, second in zip(first_split, second_split, strict=True):
+        assert first.index.tolist() == second.index.tolist()
