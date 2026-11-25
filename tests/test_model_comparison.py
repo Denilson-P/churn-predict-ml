@@ -1,4 +1,3 @@
-
 import numpy as np
 import pandas as pd
 import pytest
@@ -93,17 +92,9 @@ def test_compare_models_returns_valid_metrics(
         n_splits=3,
     )
 
-    mean_columns = [
-        column
-        for column in results.columns
-        if column.endswith("_mean")
-    ]
+    mean_columns = [column for column in results.columns if column.endswith("_mean")]
 
-    std_columns = [
-        column
-        for column in results.columns
-        if column.endswith("_std")
-    ]
+    std_columns = [column for column in results.columns if column.endswith("_std")]
 
     assert results[mean_columns].ge(0).all().all()
     assert results[mean_columns].le(1).all().all()
