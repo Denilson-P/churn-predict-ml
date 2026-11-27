@@ -3,7 +3,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 
-from churn_predict_ml.transformers import build_preprocessor
+from churn_predict_ml.ml.transformers import build_preprocessor
 
 
 def build_logistic_regression_pipeline(

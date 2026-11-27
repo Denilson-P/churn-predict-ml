@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from churn_predict_ml.threshold import (
+from churn_predict_ml.ml.threshold import (
     compare_thresholds,
     predict_with_threshold,
     select_best_threshold,

@@ -2,12 +2,12 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from churn_predict_ml.model_persistence import (
+from churn_predict_ml.inference.model_persistence import (
     load_model,
     predict_churn,
     save_model,
 )
-from churn_predict_ml.training import build_logistic_regression_pipeline
+from churn_predict_ml.ml.training import build_logistic_regression_pipeline
 
 
 @pytest.fixture

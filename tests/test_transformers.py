@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from churn_predict_ml.transformers import build_preprocessor
+from churn_predict_ml.ml.transformers import build_preprocessor
 
 
 def test_build_preprocessor_encodes_categorical_columns() -> None:

@@ -4,14 +4,14 @@ import pandas as pd
 from sklearn.base import clone
 from sklearn.model_selection import StratifiedKFold
 
-from churn_predict_ml.experiment import evaluate_model
-from churn_predict_ml.hyperparameter_tuning import tune_random_forest
-from churn_predict_ml.preprocessing import (
+from churn_predict_ml.ml.experiment import evaluate_model
+from churn_predict_ml.ml.hyperparameter_tuning import tune_random_forest
+from churn_predict_ml.ml.preprocessing import (
     clean_total_charges,
     split_features_target,
     split_train_test,
 )
-from churn_predict_ml.training import (
+from churn_predict_ml.ml.training import (
     build_logistic_regression_pipeline,
     build_random_forest_pipeline,
 )

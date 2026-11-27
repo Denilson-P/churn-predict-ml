@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from churn_predict_ml.preprocessing import (
+from churn_predict_ml.ml.preprocessing import (
     clean_total_charges,
     split_features_target,
     split_train_test,
