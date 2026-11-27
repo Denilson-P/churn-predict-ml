@@ -4,12 +4,12 @@ import pandas as pd
 from sklearn.model_selection import StratifiedKFold, cross_validate
 from sklearn.pipeline import Pipeline
 
-from churn_predict_ml.preprocessing import (
+from churn_predict_ml.ml.preprocessing import (
     clean_total_charges,
     split_features_target,
     split_train_test,
 )
-from churn_predict_ml.training import (
+from churn_predict_ml.ml.training import (
     build_logistic_regression_pipeline,
     build_random_forest_pipeline,
 )

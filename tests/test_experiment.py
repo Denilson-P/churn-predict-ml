@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from churn_predict_ml.experiment import evaluate_model
+from churn_predict_ml.ml.experiment import evaluate_model
 
 
 def test_evaluate_model_perfect_predictions() -> None:

@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from churn_predict_ml.model_selection import compare_models_with_thresholds
+from churn_predict_ml.ml.model_selection import compare_models_with_thresholds
 
 
 @pytest.fixture

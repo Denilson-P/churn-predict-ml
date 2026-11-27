@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from churn_predict_ml.model_evaluation import evaluate_saved_model
-from churn_predict_ml.training import build_logistic_regression_pipeline
+from churn_predict_ml.ml.model_evaluation import evaluate_saved_model
+from churn_predict_ml.ml.training import build_logistic_regression_pipeline
 
 
 @pytest.fixture

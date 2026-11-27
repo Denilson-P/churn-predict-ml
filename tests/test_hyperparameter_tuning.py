@@ -3,8 +3,8 @@ import pandas as pd
 import pytest
 from sklearn.model_selection import RandomizedSearchCV
 
-from churn_predict_ml.hyperparameter_tuning import tune_random_forest
-from churn_predict_ml.training import build_random_forest_pipeline
+from churn_predict_ml.ml.hyperparameter_tuning import tune_random_forest
+from churn_predict_ml.ml.training import build_random_forest_pipeline
 
 
 @pytest.fixture

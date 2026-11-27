@@ -4,13 +4,13 @@ import joblib
 import pandas as pd
 from sklearn.pipeline import Pipeline
 
-from churn_predict_ml.preprocessing import (
+from churn_predict_ml.ml.preprocessing import (
     clean_total_charges,
     split_features_target,
     split_train_test,
 )
-from churn_predict_ml.threshold import predict_with_threshold
-from churn_predict_ml.training import build_logistic_regression_pipeline
+from churn_predict_ml.ml.threshold import predict_with_threshold
+from churn_predict_ml.ml.training import build_logistic_regression_pipeline
 
 
 def save_model(

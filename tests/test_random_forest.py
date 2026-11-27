@@ -4,7 +4,7 @@ import pytest
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
 
-from churn_predict_ml.training import build_random_forest_pipeline
+from churn_predict_ml.ml.training import build_random_forest_pipeline
 
 
 @pytest.fixture

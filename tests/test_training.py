@@ -5,7 +5,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
-from churn_predict_ml.training import build_logistic_regression_pipeline
+from churn_predict_ml.ml.training import build_logistic_regression_pipeline
 
 
 @pytest.fixture

@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from churn_predict_ml.model_comparison import compare_models
-from churn_predict_ml.training import (
+from churn_predict_ml.ml.model_comparison import compare_models
+from churn_predict_ml.ml.training import (
     build_logistic_regression_pipeline,
     build_random_forest_pipeline,
 )

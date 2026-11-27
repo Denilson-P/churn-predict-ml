@@ -3,9 +3,9 @@ from pathlib import Path
 import pandas as pd
 from sklearn.metrics import classification_report, confusion_matrix
 
-from churn_predict_ml.experiment import evaluate_model
-from churn_predict_ml.model_persistence import load_model, predict_churn
-from churn_predict_ml.preprocessing import (
+from churn_predict_ml.inference.model_persistence import load_model, predict_churn
+from churn_predict_ml.ml.experiment import evaluate_model
+from churn_predict_ml.ml.preprocessing import (
     clean_total_charges,
     split_features_target,
     split_train_test,

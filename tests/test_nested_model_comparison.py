@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from churn_predict_ml.nested_model_comparison import compare_models_nested
+from churn_predict_ml.ml.nested_model_comparison import compare_models_nested
 
 
 @pytest.fixture

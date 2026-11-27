@@ -12,17 +12,17 @@ from sklearn.metrics import (
     roc_auc_score,
 )
 
-from churn_predict_ml.preprocessing import (
+from churn_predict_ml.ml.preprocessing import (
     clean_total_charges,
     split_features_target,
     split_train_test,
 )
-from churn_predict_ml.threshold import (
+from churn_predict_ml.ml.threshold import (
     compare_thresholds,
     predict_with_threshold,
     select_best_threshold,
 )
-from churn_predict_ml.training import build_logistic_regression_pipeline
+from churn_predict_ml.ml.training import build_logistic_regression_pipeline
 
 
 def evaluate_model(
