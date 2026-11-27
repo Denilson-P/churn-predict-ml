@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
-from churn_predict_ml.api.routes.health import router as health_router
+from churn_predict_ml.api.routes.health.health import router as health_router
+from churn_predict_ml.api.routes.predict.route import router as predict_router
 
 
 def create_app() -> FastAPI:
@@ -16,6 +17,7 @@ def create_app() -> FastAPI:
     )
 
     app.include_router(health_router)
+    app.include_router(predict_router)
 
     return app
 
